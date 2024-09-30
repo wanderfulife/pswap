@@ -16,11 +16,10 @@ OBJS = $(SRCS:%.c=$(OBJS_DIR)/%.o)
 DEPS = $(OBJS:.o=.d)
 
 LIBFT_DIR = ./libft
-LIBFT = $(LIBFT_DIR)/libftprintf.a  # Changed from libft.a to libftprintf.a
+LIBFT = $(LIBFT_DIR)/libftprintf.a 
 
-# Update compilation flags
 CFLAGS += -I$(LIBFT_DIR)/includes
-LDFLAGS += -L$(LIBFT_DIR) -lftprintf  # Changed from -lft to -lftprintf
+LDFLAGS += -L$(LIBFT_DIR) -lftprintf
 
 all: $(NAME)
 
