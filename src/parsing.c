@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: JoWander <jowander@student.42.fr>          +#+  +:+       +#+        */
+/*   By: JWander <jowander@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 15:03:46 by JoWander          #+#    #+#             */
-/*   Updated: 2024/09/30 17:57:56 by JoWander         ###   ########.fr       */
+/*   Updated: 2024/10/01 10:29:23 by JWander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/includes/libft.h"  // Add this line to include libft
-
 
 int	already_exists(t_stack *stack, int nb)
 {

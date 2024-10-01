@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: JoWander <jowander@student.42.fr>          +#+  +:+       +#+        */
+/*   By: JWander <jowander@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 17:10:25 by JoWander          #+#    #+#             */
-/*   Updated: 2024/09/30 17:57:52 by JoWander         ###   ########.fr       */
+/*   Updated: 2024/10/01 10:47:59 by JWander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,41 @@ static t_push_swap	*init_all(int ac, char **av)
 	return (ps);
 }
 
-static int has_duplicates(t_push_swap *ps)
+static int	has_duplicates(t_push_swap *ps)
 {
-	int i, j;
-	for (i = 0; i < ps->a->size - 1; i++)
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < ps->a->size - 1)
 	{
-		for (j = i + 1; j < ps->a->size; j++)
+		j = i + 1;
+		while (j < ps->a->size)
 		{
 			if (ps->a->stack[i] == ps->a->stack[j])
 				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+static int	handle_duplicates_and_sort(t_push_swap *ps)
+{
+	if (has_duplicates(ps))
+	{
+		ft_putstr_fd("Error: Duplicate numbers found\n", 2);
+		return (ft_cleanup_and_print_error(ps), 1);
+	}
+	if (!is_sorted_start(ps->a))
+	{
+		if (ps->a->size <= 5)
+			sort_small_set(ps);
+		else
+		{
+			simplify_stack(ps);
+			radix_sort(ps);
 		}
 	}
 	return (0);
@@ -77,38 +103,14 @@ int	main(int ac, char **av)
 	t_push_swap	*ps;
 
 	if (ac < 2)
-		return (0);  // Exit if no arguments provided (program name is always the first argument)
-
+		return (0);
 	if (!is_valid_input(ac, av))
-	{
-		ft_putendl_fd("Error", STDERR_FILENO);  // Print error message to stderr if input is invalid
-		return (1);  // Return 1 to indicate an error occurred
-	}
-
-	ps = init_all(ac, av);  // Initialize the push_swap structure with the given arguments
+		return (ft_putendl_fd("Error", ERROR_EXIT), 1);
+	ps = init_all(ac, av);
 	if (!ps || !parse_arguments(ps, ac, av))
-	{
-		if (has_duplicates(ps))
-		{
-			ft_putstr_fd("Error: Duplicate numbers found\n", 2);
-			return (ft_cleanup_and_print_error(ps), 1);
-		}
-		return (ft_cleanup_and_print_error(ps), 1);  // Clean up memory, print error, and exit if initialization or parsing fails
-	}
-
-	if (!is_sorted_start(ps->a))  // Check if the initial stack 'a' is already sorted
-	{
-		if (ps->a->size <= 5)
-		{
-			sort_small_set(ps);  // Use a specific algorithm for sorting small sets (5 or fewer elements)
-		}
-		else
-		{
-			simplify_stack(ps);  // Convert the stack values to a simplified form (e.g., ranking)
-			radix_sort(ps);  // Use radix sort algorithm for larger sets of numbers
-		}
-	}
-
-	free_push_swap(ps);  // Free all allocated memory in the push_swap structure
-	return (0);  // Return 0 to indicate successful execution
+		return (ft_cleanup_and_print_error(ps), 1);
+	if (handle_duplicates_and_sort(ps))
+		return (1);
+	free_push_swap(ps);
+	return (0);
 }

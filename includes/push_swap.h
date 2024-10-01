@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: JoWander <jowander@student.42.fr>          +#+  +:+       +#+        */
+/*   By: JWander <jowander@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 18:16:57 by JoWander          #+#    #+#             */
-/*   Updated: 2024/09/30 18:02:56 by JoWander         ###   ########.fr       */
+/*   Updated: 2024/10/01 10:26:30 by JWander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 // # include "../libft/ft_printf.h"
 // # include "../libft/libft.h"
