@@ -6,12 +6,9 @@
 /*   By: JWander <jowander@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 18:16:57 by JoWander          #+#    #+#             */
-/*   Updated: 2024/10/01 10:26:30 by JWander          ###   ########.fr       */
+/*   Updated: 2024/10/03 13:33:42 by JWander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// # include "../libft/ft_printf.h"
-// # include "../libft/libft.h"
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
