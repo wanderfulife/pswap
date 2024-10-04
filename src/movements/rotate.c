@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: JWander <jowander@student.42.fr>           +#+  +:+       +#+        */
+/*   By: JoWander <jowander@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 20:04:23 by JoWander          #+#    #+#             */
-/*   Updated: 2024/10/01 10:27:16 by JWander          ###   ########.fr       */
+/*   Updated: 2024/10/04 10:26:00 by JoWander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-#include "../libft/includes/libft.h"  // Add this line to include libft
+#include "../libft/includes/libft.h"
 
 void	ft_ra(t_push_swap *ps)
 {
